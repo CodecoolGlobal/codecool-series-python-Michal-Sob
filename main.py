@@ -10,6 +10,12 @@ def index():
     return render_template('index.html', shows=shows)
 
 
+@app.route('/actors')
+def show_actors():
+    actors = queries.get_actors()
+    return render_template('actors_table.html', actors=actors)
+
+
 @app.route('/design')
 def design():
     return render_template('design.html')

@@ -13,9 +13,9 @@
         </thead>
         <tbody id="actors_table_body">
 
-        {% for show in top15_shows %}
+        {% for actor in actors %}
             <tr>
-                {% for key, value in show.items() %}
+                {% for key, value in actor.items() %}
                     <td>{{ value }}</td>
                 {% endfor %}
             </tr>
