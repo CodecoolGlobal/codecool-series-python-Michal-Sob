@@ -6,17 +6,16 @@ def get_shows():
 
 
 def get_actors():
-    return data_manager.execute_select(''' SELECT name, birthday, death, biography
+    return data_manager.execute_select(''' SELECT id, name, birthday, death, biography
                                              FROM actors
                                             ORDER BY name ASC
-                                            LIMIT 15;''')
+                                            LIMIT 20;''')
 
 
-def get_movies():
-    return data_manager.execute_select('''SELECT shows.*
-                                             FROM actors
-                                             JOIN show_characters
-                                             ON actors.id = show_characters.actor_id
-                                             LEFT JOIN shows
+def get_movies(id):
+    return data_manager.execute_select(f'''SELECT title
+                                             FROM shows
+                                             LEFT JOIN show_characters
                                              ON show_characters.show_id = shows.id
+                                             WHERE show_characters.actor_id = {id}
                                             ''')

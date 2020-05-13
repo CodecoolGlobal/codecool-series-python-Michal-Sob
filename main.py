@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify
 from data import queries
 
 app = Flask('codecool_series')
@@ -13,14 +13,20 @@ def index():
 @app.route('/actors')
 def show_actors():
     actors = queries.get_actors()
-    movies = queries.get_movies()
-    print(movies)
+
     return render_template('actors_table.html', actors=actors)
 
 
 @app.route('/design')
 def design():
     return render_template('design.html')
+
+
+@app.route('/actor/<int:id>/movies')
+def movies(id):
+    actor_movies = queries.get_movies(id)
+
+    return jsonify(actor_movies)
 
 
 def main():
