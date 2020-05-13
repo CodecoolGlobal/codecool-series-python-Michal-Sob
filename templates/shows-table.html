@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="card">
+    <table id="shows_table">
+        <thead>
+        <tr>
+            <th>title</th>
+            <th>year</th>
+            <th>runtime</th>
+            <th>d</th>
+            <th class="action-column">e</th>
+        </tr>
+        </thead>
+        <tbody id="top15_table_body">
+        <tr>
+            <td>Lorem</td>
+            <td>Ipsum</td>
+            <td>Dolor</td>
+            <td>Sit amet</td>
+            <td class="action-column">
+                <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>Lorem</td>
+            <td>Ipsum</td>
+            <td>Dolor</td>
+            <td>Sit amet</td>
+            <td class="action-column">
+                <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>Lorem</td>
+            <td>Ipsum</td>
+            <td>Dolor</td>
+            <td>Sit amet</td>
+            <td class="action-column">
+                <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>Lorem</td>
+            <td>Ipsum</td>
+            <td>Dolor</td>
+            <td>Sit amet</td>
+            <td class="action-column">
+                <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>Lorem</td>
+            <td>Ipsum</td>
+            <td>Dolor</td>
+            <td>Sit amet</td>
+            <td class="action-column">
+                <button type="button" class="icon-button"><i class="fa fa-edit fa-fw"></i></button>
+                <button type="button" class="icon-button"><i class="fa fa-trash fa-fw"></i></button>
+            </td>
+        </tr>
+
+        {% for show in top15_shows %}
+            <tr>
+                {% for key, value in show.items() %}
+
+                    {% if key == 'trailer' or key == 'homepage' %}
+                        <td><a href="{{ value }}">{{ value }}</a></td>
+                    {% else %}
+                        <td>{{ value }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
