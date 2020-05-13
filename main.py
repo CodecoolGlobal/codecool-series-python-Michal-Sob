@@ -13,6 +13,8 @@ def index():
 @app.route('/actors')
 def show_actors():
     actors = queries.get_actors()
+    movies = queries.get_movies()
+    print(movies)
     return render_template('actors_table.html', actors=actors)
 
 
