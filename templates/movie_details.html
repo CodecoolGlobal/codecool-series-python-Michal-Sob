@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+    <div class="card detailed-view">
+            <div class="row">
+                <div class="col col-twothird">
+                    <h2>{{ movie['title'] }}</h2>
+                    <p class="small grayed">{{ movie['runtime'] }}<span class="separator">|</span>{{ movie['name'] }}<span
+                            class="separator">|</span>{{ movie['year'] }}</p>
+                    <p><strong>Rating: {{ movie['rating'] }}</strong></p>
+                    <p>{{ movie['overview'] }}</p>
+                </div>
+            </div>
+            <div>
+                <a href="{{ movie['trailer'] }}"><b>Trailer</b></a>
+                <br>
+                <a href="{{ movie['homepage'] }}"><b>Homepage</b></a>
+            </div>
+        </div>
+
+{% endblock %}

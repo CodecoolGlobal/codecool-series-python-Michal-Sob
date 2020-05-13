@@ -13,9 +13,17 @@ def get_actors():
 
 
 def get_movies(id):
-    return data_manager.execute_select(f'''SELECT title
+    return data_manager.execute_select(f'''SELECT shows.id, title 
                                              FROM shows
                                              LEFT JOIN show_characters
                                              ON show_characters.show_id = shows.id
                                              WHERE show_characters.actor_id = {id}
                                             ''')
+
+
+def get_movie_details(id):
+    return data_manager.execute_select(f'''SELECT * 
+                                             FROM shows 
+                                             JOIN show_genres ON shows.id = show_genres.show_id 
+                                             JOIN genres ON show_genres.genre_id = genres.id 
+                                            WHERE shows.id = {id}''')
