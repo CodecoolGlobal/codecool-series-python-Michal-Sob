@@ -3,7 +3,6 @@ function actorsModal () {
 
     for (let actor_button of actors_button) {
         let url = actor_button.getAttribute('actor_url')
-        console.log(url)
         let movies_table = document.getElementsByClassName('modal-body')[0]
 
         actor_button.addEventListener("click", e => {
@@ -11,12 +10,12 @@ function actorsModal () {
             while (movies_table.firstChild) {
             movies_table.removeChild(movies_table.firstChild)
             }
+
             fetch(url)
                 .then((response) => {
                     return response.json()
                 })
                 .then((movies) => {
-                    console.log(movies)
                     for (let movie of movies) {
                         let newModalRow = movies_table.insertRow(-1)
                         let newModalCell = newModalRow.insertCell(-1)

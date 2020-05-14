@@ -32,7 +32,7 @@ def movies(id):
 @app.route('/movie/<int:id>')
 def movie_details(id):
     movie = queries.get_movie_details(id)
-    print(movie)
+
     return render_template('movie_details.html', movie=movie[0])
 
 
